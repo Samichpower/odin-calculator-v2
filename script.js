@@ -22,13 +22,10 @@ function operate(a, operator, b) {
   return operator(a, b);
 }
 
-
-
 const numberDisplay = document.querySelector('#num-display');
+let displayValue = '';
 
 function populateDisplay() {
-  let displayValue = '';
-
   const numberButtons = document.querySelectorAll('.number');
   numberButtons.forEach((item) => {
     item.addEventListener('click', () => {
@@ -39,3 +36,24 @@ function populateDisplay() {
 }
 
 populateDisplay();
+
+const addButton = document.querySelector('#add');
+const subtractButton = document.querySelector('#subtract');
+const multiplyButton = document.querySelector('#multiply');
+const divideButton = document.querySelector('#divide');
+
+addButton.addEventListener('click', () => {
+  operator = add;
+});
+
+subtractButton.addEventListener('click', () => {
+  operator = subtract;
+});
+
+multiplyButton.addEventListener('click', () => {
+  operator = multiply;
+});
+
+divideButton.addEventListener('click', () => {
+  operator = divide;
+});
