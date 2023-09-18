@@ -25,17 +25,17 @@ function operate(a, operator, b) {
 const numberDisplay = document.querySelector('#num-display');
 let displayValue = '';
 
-function populateDisplay() {
-  const numberButtons = document.querySelectorAll('.number');
-  numberButtons.forEach((item) => {
-    item.addEventListener('click', () => {
-      displayValue += item.textContent;
-      numberDisplay.textContent = displayValue;
-    })
-  })
+function populateDisplay(item) {
+  displayValue += item.textContent;
+  numberDisplay.textContent = displayValue;
 }
 
-populateDisplay();
+const numberButtons = document.querySelectorAll('.number');
+numberButtons.forEach((item) => {
+  item.addEventListener('click', () => {
+    populateDisplay(item);
+  })
+})
 
 const addButton = document.querySelector('#add');
 const subtractButton = document.querySelector('#subtract');
