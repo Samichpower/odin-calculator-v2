@@ -19,7 +19,7 @@ let operator;
 let secondNum;
 
 function operate(a, operator, b) {
-  return operator(a, b);
+  return operator(+a, +b);
 }
 
 
@@ -50,6 +50,7 @@ const equalsButton = document.querySelector('#equals');
 addButton.addEventListener('click', () => {
   operator = add;
   firstNum = displayValue;
+  secondNum = displayValue;
   displayValue = '';
 });
 
@@ -66,7 +67,7 @@ divideButton.addEventListener('click', () => {
 });
 
 equalsButton.addEventListener('click', () => {
-  secondNum = displayValue;
-  displayValue = operate(+firstNum, operator, +secondNum);
+  // firstNum = displayValue;
+  displayValue = operate(firstNum, operator, secondNum);
   populateDisplay();
 })
