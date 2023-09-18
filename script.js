@@ -22,6 +22,10 @@ function operate(a, operator, b) {
   return operator(a, b);
 }
 
+
+
+const numberDisplay = document.querySelector('#num-display');
+
 function populateDisplay() {
   let displayValue = '';
 
@@ -29,7 +33,7 @@ function populateDisplay() {
   numberButtons.forEach((item) => {
     item.addEventListener('click', () => {
       displayValue += item.textContent;
-      console.log(displayValue);
+      numberDisplay.textContent = displayValue;
     })
   })
 }
