@@ -14,9 +14,9 @@ function divide(a, b) {
   return a / b;
 }
 
-let firstNum;
+let numberOne;
 let operator;
-let secondNum;
+let numberTwo;
 
 function operate(a, operator, b) {
   return operator(+a, +b);
@@ -49,8 +49,8 @@ const equalsButton = document.querySelector('#equals');
 
 addButton.addEventListener('click', () => {
   operator = add;
-  firstNum = displayValue;
-  secondNum = displayValue;
+  numberOne = displayValue;
+  numberTwo = displayValue;
   displayValue = '';
 });
 
@@ -67,7 +67,7 @@ divideButton.addEventListener('click', () => {
 });
 
 equalsButton.addEventListener('click', () => {
-  secondNum = displayValue;
-  displayValue = operate(firstNum, operator, secondNum);
+  numberTwo = displayValue;
+  displayValue = operate(numberOne, operator, numberTwo);
   populateDisplay();
 })
