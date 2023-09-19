@@ -67,7 +67,7 @@ divideButton.addEventListener('click', () => {
 });
 
 equalsButton.addEventListener('click', () => {
-  // firstNum = displayValue;
+  secondNum = displayValue;
   displayValue = operate(firstNum, operator, secondNum);
   populateDisplay();
 })
