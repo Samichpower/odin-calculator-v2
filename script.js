@@ -1,3 +1,14 @@
+const addButton = document.querySelector('#add');
+const subtractButton = document.querySelector('#subtract');
+const multiplyButton = document.querySelector('#multiply');
+const divideButton = document.querySelector('#divide');
+const equalsButton = document.querySelector('#equals');
+const numberDisplay = document.querySelector('#num-display');
+
+let numberOne;
+let operator;
+let numberTwo;
+
 function add(a, b) {
   return a + b;
 }
@@ -14,17 +25,10 @@ function divide(a, b) {
   return a / b;
 }
 
-let numberOne;
-let operator;
-let numberTwo;
-
 function operate(a, operator, b) {
   return operator(+a, +b);
 }
 
-
-
-const numberDisplay = document.querySelector('#num-display');
 let displayValue = '';
 
 function populateDisplay() {
@@ -38,14 +42,6 @@ numberButtons.forEach((number) => {
     populateDisplay();
   })
 })
-
-
-
-const addButton = document.querySelector('#add');
-const subtractButton = document.querySelector('#subtract');
-const multiplyButton = document.querySelector('#multiply');
-const divideButton = document.querySelector('#divide');
-const equalsButton = document.querySelector('#equals');
 
 addButton.addEventListener('click', () => {
   operator = add;
