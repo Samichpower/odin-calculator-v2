@@ -27,8 +27,8 @@ function divide(a, b) {
   return a / b;
 }
 
-function operate(a, operator, b) {
-  return operator(+a, +b);
+function operate(a, chosenOperator, b) {
+  return chosenOperator(+a, +b);
 }
 
 
@@ -38,18 +38,20 @@ function populateDisplay() {
 
 numberButtons.forEach((number) => {
   number.addEventListener('click', () => {
+    numberTwo += number.textContent;
     displayValue += number.textContent;
     populateDisplay();
   })
 })
 
 addButton.addEventListener('click', () => {
-  if (!operator && !numberTwo) {
-    numberOne = displayValue;
-    numberTwo = displayValue;
+  if (!operator) {
+    numberOne = numberTwo;
+    numberTwo = '';
   } else {
-    numberTwo = displayValue;
+    // numberTwo = displayValue;
     numberOne = operate(numberOne, operator, numberTwo);
+    numberTwo = '';
   }
   operator = add;
   console.log(numberOne, numberTwo);
@@ -69,8 +71,9 @@ divideButton.addEventListener('click', () => {
 });
 
 equalsButton.addEventListener('click', () => {
-  numberTwo = displayValue;
+  // numberTwo = displayValue;
+  numberOne = operate(numberOne, operator, numberTwo);
   console.log(numberOne, numberTwo);
-  displayValue = operate(numberOne, operator, numberTwo);
+  displayValue = numberOne;
   populateDisplay();
 })
