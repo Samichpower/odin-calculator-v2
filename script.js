@@ -1,3 +1,4 @@
+const numberButtons = document.querySelectorAll('.number');
 const addButton = document.querySelector('#add');
 const subtractButton = document.querySelector('#subtract');
 const multiplyButton = document.querySelector('#multiply');
@@ -35,7 +36,6 @@ function populateDisplay() {
   numberDisplay.textContent = displayValue;
 }
 
-const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach((number) => {
   number.addEventListener('click', () => {
     displayValue += number.textContent;
