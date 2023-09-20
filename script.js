@@ -47,14 +47,12 @@ numberButtons.forEach((number) => {
 addButton.addEventListener('click', () => {
   if (!operator) {
     numberOne = numberTwo;
-    numberTwo = '';
   } else {
-    // numberTwo = displayValue;
     numberOne = operate(numberOne, operator, numberTwo);
-    numberTwo = '';
   }
   operator = add;
   console.log(numberOne, numberTwo);
+  numberTwo = '';
   displayValue = '';
 });
 
@@ -71,7 +69,6 @@ divideButton.addEventListener('click', () => {
 });
 
 equalsButton.addEventListener('click', () => {
-  // numberTwo = displayValue;
   numberOne = operate(numberOne, operator, numberTwo);
   console.log(numberOne, numberTwo);
   displayValue = numberOne;
