@@ -44,9 +44,15 @@ numberButtons.forEach((number) => {
 })
 
 addButton.addEventListener('click', () => {
+  if (!operator && !numberTwo) {
+    numberOne = displayValue;
+    numberTwo = displayValue;
+  } else {
+    numberTwo = displayValue;
+    numberOne = operate(numberOne, operator, numberTwo);
+  }
   operator = add;
-  numberOne = displayValue;
-  numberTwo = displayValue;
+  console.log(numberOne, numberTwo);
   displayValue = '';
 });
 
@@ -64,6 +70,7 @@ divideButton.addEventListener('click', () => {
 
 equalsButton.addEventListener('click', () => {
   numberTwo = displayValue;
+  console.log(numberOne, numberTwo);
   displayValue = operate(numberOne, operator, numberTwo);
   populateDisplay();
 })
