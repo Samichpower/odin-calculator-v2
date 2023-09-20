@@ -44,28 +44,32 @@ numberButtons.forEach((number) => {
   })
 })
 
-addButton.addEventListener('click', () => {
+function doOperation(item) {
   if (!operator) {
     numberOne = numberTwo;
   } else {
     numberOne = operate(numberOne, operator, numberTwo);
   }
-  operator = add;
+  operator = item;
   console.log(numberOne, numberTwo);
   numberTwo = '';
   displayValue = '';
+}
+
+addButton.addEventListener('click', () => {
+  doOperation(add);
 });
 
 subtractButton.addEventListener('click', () => {
-  operator = subtract;
+  doOperation(subtract);
 });
 
 multiplyButton.addEventListener('click', () => {
-  operator = multiply;
+  doOperation(multiply);
 });
 
 divideButton.addEventListener('click', () => {
-  operator = divide;
+  doOperation(divide);
 });
 
 equalsButton.addEventListener('click', () => {
