@@ -6,9 +6,10 @@ const divideButton = document.querySelector('#divide');
 const equalsButton = document.querySelector('#equals');
 const numberDisplay = document.querySelector('#num-display');
 
-let numberOne;
-let operator;
-let numberTwo;
+let numberOne = '';
+let numberTwo = '';
+let operator = null;
+let displayValue = '';
 
 function add(a, b) {
   return a + b;
@@ -30,7 +31,6 @@ function operate(a, operator, b) {
   return operator(+a, +b);
 }
 
-let displayValue = '';
 
 function populateDisplay() {
   numberDisplay.textContent = displayValue;
