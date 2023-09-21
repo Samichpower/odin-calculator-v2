@@ -6,8 +6,8 @@ const divideButton = document.querySelector('#divide');
 const equalsButton = document.querySelector('#equals');
 const numberDisplay = document.querySelector('#num-display');
 
-let numberOne = '';
-let numberTwo = '';
+let previousNum = '';
+let currentNum = '';
 let operator = null;
 let displayValue = '';
 let isEqualed = false;
@@ -38,7 +38,7 @@ function populateDisplay() {
 
 numberButtons.forEach((number) => {
   number.addEventListener('click', () => {
-    numberTwo += number.textContent;
+    currentNum += number.textContent;
     displayValue += number.textContent;
     populateDisplay();
   })
@@ -46,13 +46,13 @@ numberButtons.forEach((number) => {
 
 function doOperation(item) {
   if (!operator) {
-    numberOne = numberTwo;
+    previousNum = currentNum;
   } else if (!isEqualed) {
-    numberOne = operate(numberOne, operator, numberTwo);
+    previousNum = operate(previousNum, operator, currentNum);
   }
   operator = item;
-  console.log(numberOne, numberTwo);
-  numberTwo = '';
+  console.log(previousNum, currentNum);
+  currentNum = '';
   displayValue = '';
 }
 
@@ -74,8 +74,8 @@ divideButton.addEventListener('click', () => {
 
 equalsButton.addEventListener('click', () => {
   isEqualed = true;
-  numberOne = operate(numberOne, operator, numberTwo);
-  console.log(numberOne, numberTwo);
-  displayValue = numberOne;
+  previousNum = operate(previousNum, operator, currentNum);
+  console.log(previousNum, currentNum);
+  displayValue = previousNum;
   populateDisplay();
 })
