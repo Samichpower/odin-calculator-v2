@@ -10,6 +10,7 @@ let numberOne = '';
 let numberTwo = '';
 let operator = null;
 let displayValue = '';
+let equaled = false;
 
 function add(a, b) {
   return a + b;
@@ -31,7 +32,6 @@ function operate(a, chosenOperator, b) {
   return chosenOperator(+a, +b);
 }
 
-
 function populateDisplay() {
   numberDisplay.textContent = displayValue;
 }
@@ -47,7 +47,7 @@ numberButtons.forEach((number) => {
 function doOperation(item) {
   if (!operator) {
     numberOne = numberTwo;
-  } else {
+  } else if (!equaled) {
     numberOne = operate(numberOne, operator, numberTwo);
   }
   operator = item;
@@ -73,6 +73,7 @@ divideButton.addEventListener('click', () => {
 });
 
 equalsButton.addEventListener('click', () => {
+  equaled = true;
   numberOne = operate(numberOne, operator, numberTwo);
   console.log(numberOne, numberTwo);
   displayValue = numberOne;
