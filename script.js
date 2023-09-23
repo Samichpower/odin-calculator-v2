@@ -27,6 +27,9 @@ function populateDisplay() {
 
 numberButtons.forEach((number) => {
   number.addEventListener('click', () => {
+    if (currentNum.length === 0 && number.textContent === '0') {
+      return;
+    }
     currentNum += number.textContent;
     displayValue += number.textContent;
     populateDisplay();
