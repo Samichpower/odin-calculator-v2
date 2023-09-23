@@ -53,6 +53,7 @@ function doOperation(item) {
 
 equalsButton.addEventListener('click', () => {
   isEqualed = true;
+  if (currentNum === '') currentNum = previousNum;
   previousNum = operate(previousNum, operator, currentNum);
   console.log(previousNum, currentNum);
   displayValue = previousNum;
