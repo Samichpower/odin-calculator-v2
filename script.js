@@ -12,25 +12,18 @@ let operator = null;
 let displayValue = '';
 let isEqualed = false;
 
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
+let allOperations = {
+  add: (a, b) => a + b,
+  subtract: (a, b) => a - b,
+  multiply: (a, b) => a * b,
+  divide: (a, b) => a / b
 }
 
 function operate(a, chosenOperator, b) {
-  return chosenOperator(+a, +b);
+  return allOperations[chosenOperator](+a, +b);
 }
+
+console.log(operate(2, 'multiply', 5));
 
 function populateDisplay() {
   numberDisplay.textContent = displayValue;
@@ -57,19 +50,19 @@ function doOperation(item) {
 }
 
 addButton.addEventListener('click', () => {
-  doOperation(add);
+  doOperation('add');
 });
 
 subtractButton.addEventListener('click', () => {
-  doOperation(subtract);
+  doOperation('subtract');
 });
 
 multiplyButton.addEventListener('click', () => {
-  doOperation(multiply);
+  doOperation('multiply');
 });
 
 divideButton.addEventListener('click', () => {
-  doOperation(divide);
+  doOperation('divide');
 });
 
 equalsButton.addEventListener('click', () => {
