@@ -9,7 +9,7 @@ let currentNum = '';
 let operator = null;
 let displayValue = '';
 let isEqualed = false;
-// let isNewCalculation = true;
+let isNewCalculation = true;
 
 const allOperations = {
   add: (a, b) => a + b,
@@ -28,6 +28,10 @@ function populateDisplay() {
 
 numberButtons.forEach((number) => {
   number.addEventListener('click', () => {
+    if (isNewCalculation) {
+      clearCalculator();
+      isNewCalculation = false;
+    }
     if (currentNum.length === 0 && number.textContent === '0') {
       return;
     }
@@ -44,13 +48,14 @@ operatorButtons.forEach((operator) => {
 })
 
 function onOperatorClick(item) {
+  isNewCalculation = false;
   if (!operator) {
     previousNum = currentNum;
   } else if (!isEqualed) {
     previousNum = operate(previousNum, operator, currentNum);
   }
-  operator = item;
   console.log(previousNum, currentNum);
+  operator = item;
   currentNum = '';
   displayValue = previousNum;
   populateDisplay();
@@ -59,6 +64,7 @@ function onOperatorClick(item) {
 
 equalsButton.addEventListener('click', () => {
   if (previousNum === '') return;
+  isNewCalculation = true;
   isEqualed = true;
   if (currentNum === '') currentNum = previousNum;
   previousNum = operate(previousNum, operator, currentNum);
@@ -67,11 +73,13 @@ equalsButton.addEventListener('click', () => {
   populateDisplay();
 })
 
-clearButton.addEventListener('click', () => {
+function clearCalculator() {
   previousNum = '';
   currentNum = '';
   operator = null;
   displayValue = '';
   isEqualed = false;
   numberDisplay.textContent = 0;
-})
+}
+
+clearButton.addEventListener('click', clearCalculator);
