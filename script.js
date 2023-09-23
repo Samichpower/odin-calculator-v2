@@ -48,6 +48,8 @@ function doOperation(item) {
   operator = item;
   console.log(previousNum, currentNum);
   currentNum = '';
+  displayValue = previousNum;
+  populateDisplay();
   displayValue = '';
 }
 
