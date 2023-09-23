@@ -5,6 +5,7 @@ const multiplyButton = document.querySelector('#multiply');
 const divideButton = document.querySelector('#divide');
 const equalsButton = document.querySelector('#equals');
 const numberDisplay = document.querySelector('#num-display');
+const operatorButtons = document.querySelectorAll('.operator');
 
 let previousNum = '';
 let currentNum = '';
@@ -12,7 +13,7 @@ let operator = null;
 let displayValue = '';
 let isEqualed = false;
 
-let allOperations = {
+const allOperations = {
   add: (a, b) => a + b,
   subtract: (a, b) => a - b,
   multiply: (a, b) => a * b,
@@ -22,8 +23,6 @@ let allOperations = {
 function operate(a, chosenOperator, b) {
   return allOperations[chosenOperator](+a, +b);
 }
-
-console.log(operate(2, 'multiply', 5));
 
 function populateDisplay() {
   numberDisplay.textContent = displayValue;
@@ -49,21 +48,11 @@ function doOperation(item) {
   displayValue = '';
 }
 
-addButton.addEventListener('click', () => {
-  doOperation('add');
-});
-
-subtractButton.addEventListener('click', () => {
-  doOperation('subtract');
-});
-
-multiplyButton.addEventListener('click', () => {
-  doOperation('multiply');
-});
-
-divideButton.addEventListener('click', () => {
-  doOperation('divide');
-});
+operatorButtons.forEach((operator) => {
+  operator.addEventListener('click', () => {
+    doOperation(operator.id);
+  })
+})
 
 equalsButton.addEventListener('click', () => {
   isEqualed = true;
