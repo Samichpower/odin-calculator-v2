@@ -2,6 +2,7 @@ const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator');
 const equalsButton = document.querySelector('#equals');
 const numberDisplay = document.querySelector('#num-display');
+const clearButton = document.querySelector('#clear');
 
 let previousNum = '';
 let currentNum = '';
@@ -32,6 +33,12 @@ numberButtons.forEach((number) => {
   })
 })
 
+operatorButtons.forEach((operator) => {
+  operator.addEventListener('click', () => {
+    doOperation(operator.id);
+  })
+})
+
 function doOperation(item) {
   if (!operator) {
     previousNum = currentNum;
@@ -44,16 +51,19 @@ function doOperation(item) {
   displayValue = '';
 }
 
-operatorButtons.forEach((operator) => {
-  operator.addEventListener('click', () => {
-    doOperation(operator.id);
-  })
-})
-
 equalsButton.addEventListener('click', () => {
   isEqualed = true;
   previousNum = operate(previousNum, operator, currentNum);
   console.log(previousNum, currentNum);
   displayValue = previousNum;
   populateDisplay();
+})
+
+clearButton.addEventListener('click', () => {
+  previousNum = '';
+  currentNum = '';
+  operator = null;
+  displayValue = '';
+  isEqualed = false;
+  numberDisplay.textContent = 0;
 })
