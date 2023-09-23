@@ -1,7 +1,7 @@
 const numberButtons = document.querySelectorAll('.number');
+const operatorButtons = document.querySelectorAll('.operator');
 const equalsButton = document.querySelector('#equals');
 const numberDisplay = document.querySelector('#num-display');
-const operatorButtons = document.querySelectorAll('.operator');
 
 let previousNum = '';
 let currentNum = '';
