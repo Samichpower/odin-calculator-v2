@@ -9,6 +9,7 @@ let currentNum = '';
 let operator = null;
 let displayValue = '';
 let isEqualed = false;
+// let isNewCalculation = true;
 
 const allOperations = {
   add: (a, b) => a + b,
@@ -38,11 +39,11 @@ numberButtons.forEach((number) => {
 
 operatorButtons.forEach((operator) => {
   operator.addEventListener('click', () => {
-    doOperation(operator.id);
+    onOperatorClick(operator.id);
   })
 })
 
-function doOperation(item) {
+function onOperatorClick(item) {
   if (!operator) {
     previousNum = currentNum;
   } else if (!isEqualed) {
