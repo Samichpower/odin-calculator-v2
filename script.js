@@ -3,6 +3,7 @@ const operatorButtons = document.querySelectorAll('.operator');
 const equalsButton = document.querySelector('#equals');
 const numberDisplay = document.querySelector('#num-display');
 const clearButton = document.querySelector('#clear');
+const decimalButton = document.querySelector('#decimal');
 
 let previousNum = '';
 let currentNum = '';
@@ -26,8 +27,16 @@ function populateDisplay() {
   numberDisplay.textContent = displayValue;
 }
 
+function checkForDecimal(number) {
+  if (number.textContent != '.') return false;
+  if ((currentNum + '').indexOf('.') > -1) {
+    return true;
+  }
+}
+
 numberButtons.forEach((number) => {
   number.addEventListener('click', () => {
+    if (checkForDecimal(number)) return;
     if (isNewCalculation) {
       clearCalculator();
       isNewCalculation = false;
