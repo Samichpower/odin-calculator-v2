@@ -54,6 +54,7 @@ function doOperation(item) {
 }
 
 equalsButton.addEventListener('click', () => {
+  if (previousNum === '') return;
   isEqualed = true;
   if (currentNum === '') currentNum = previousNum;
   previousNum = operate(previousNum, operator, currentNum);
