@@ -31,6 +31,21 @@ function populateDisplay() {
   } else {
     numberDisplay.textContent = displayValue;
   }
+  appendFontSize();
+}
+
+function appendFontSize() {
+  const displayValueLength = displayValue.toString().length;
+  if (displayValueLength > 20) {
+    numberDisplay.style.fontSize = '24px';
+  } else if (displayValueLength > 15) {
+    numberDisplay.style.fontSize = '28px';
+  } else if (displayValueLength > 10) {
+    numberDisplay.style.fontSize = '36px';
+  } else {
+    numberDisplay.style.fontSize = '48px';
+  }
+  console.log(displayValue, displayValueLength);
 }
 
 function checkForDecimal(number) {
@@ -93,6 +108,7 @@ function clearCalculator() {
   displayValue = '';
   isEqualed = false;
   numberDisplay.textContent = 0;
+  appendFontSize();
 }
 
 clearButton.addEventListener('click', clearCalculator);
