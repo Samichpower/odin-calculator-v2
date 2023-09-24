@@ -5,6 +5,7 @@ const numberDisplay = document.querySelector('#num-display');
 const clearButton = document.querySelector('#clear');
 const decimalButton = document.querySelector('#decimal');
 const percentButton = document.querySelector('#percent');
+const backspaceButton = document.querySelector('#backspace');
 
 let previousNum = '';
 let currentNum = '';
@@ -25,7 +26,11 @@ function operate(a, chosenOperator, b) {
 }
 
 function populateDisplay() {
-  numberDisplay.textContent = displayValue;
+  if (displayValue === '') {
+    numberDisplay.textContent = 0;
+  } else {
+    numberDisplay.textContent = displayValue;
+  }
 }
 
 function checkForDecimal(number) {
@@ -95,6 +100,14 @@ clearButton.addEventListener('click', clearCalculator);
 percentButton.addEventListener('click', () => {
   if (previousNum) {
     currentNum = currentNum / 100;
+    displayValue = currentNum;
+    populateDisplay();
+  }
+});
+
+backspaceButton.addEventListener('click', () => {
+  if (currentNum.length > 0) {
+    currentNum = currentNum.slice(0, -1);
     displayValue = currentNum;
     populateDisplay();
   }
