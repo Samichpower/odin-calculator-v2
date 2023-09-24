@@ -1,4 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator {
+  width: min-content;
+}
+
+.calculator div {
+  display: flex;
+}
+
 button {
-  height: 50px;
-  width: 50px;
+  box-sizing: border-box;
+  height: 70px;
+  width: 70px;
+  margin: 4px;
+  border: 2px solid black;
+}
+
+#zero {
+  flex-grow: 1;
 }
