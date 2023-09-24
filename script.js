@@ -63,7 +63,6 @@ function onOperatorClick(item) {
   } else if (!isEqualed) {
     previousNum = operate(previousNum, operator, currentNum);
   }
-  console.log(previousNum, currentNum);
   operator = item;
   currentNum = '';
   displayValue = previousNum;
@@ -77,7 +76,6 @@ equalsButton.addEventListener('click', () => {
   isEqualed = true;
   if (currentNum === '') currentNum = previousNum;
   previousNum = operate(previousNum, operator, currentNum);
-  console.log(previousNum, currentNum);
   displayValue = previousNum;
   populateDisplay();
 })
