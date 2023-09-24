@@ -4,6 +4,7 @@ const equalsButton = document.querySelector('#equals');
 const numberDisplay = document.querySelector('#num-display');
 const clearButton = document.querySelector('#clear');
 const decimalButton = document.querySelector('#decimal');
+const percentButton = document.querySelector('#percent');
 
 let previousNum = '';
 let currentNum = '';
@@ -90,3 +91,11 @@ function clearCalculator() {
 }
 
 clearButton.addEventListener('click', clearCalculator);
+
+percentButton.addEventListener('click', () => {
+  if (previousNum) {
+    currentNum = currentNum / 100;
+    displayValue = currentNum;
+    populateDisplay();
+  }
+})
