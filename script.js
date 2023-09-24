@@ -100,6 +100,7 @@ equalsButton.addEventListener('click', () => {
   populateDisplay();
 })
 
+clearButton.addEventListener('click', clearCalculator);
 function clearCalculator() {
   previousNum = '';
   currentNum = '';
@@ -109,8 +110,6 @@ function clearCalculator() {
   numberDisplay.textContent = 0;
   appendFontSize();
 }
-
-clearButton.addEventListener('click', clearCalculator);
 
 percentButton.addEventListener('click', () => {
   if (previousNum) {
