@@ -12,30 +12,8 @@ body {
   justify-content: center;
 }
 
-.calculator {
-  width: min-content;
-}
-
 .button-container div {
   display: flex;
-}
-
-.button-container {
-  background-color: #e6e6e6;
-}
-
-button {
-  box-sizing: border-box;
-  color: #232323;
-  background-color: #e6e6e6;
-  height: 70px;
-  width: 70px;
-  margin: 4px;
-  border: 2px solid #232323;
-}
-
-button:hover {
-  background-color: #dcdcdc;
 }
 
 #num-display {
@@ -43,20 +21,38 @@ button:hover {
   background-color: #232323;
   font-size: 48px;
   text-align: right;
+  border-radius: 10px 10px 0px 0px;
+  padding: 30px 12px 40px 12px;
+}
+
+.button-container {
+  padding: 0px 4px 4px 4px;
+  margin-top: -10px;
+  border-radius: 10px;
+  background-color: #e6e6e6;
+}
+
+button {
+  box-sizing: border-box;
+  color: #232323;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  height: 70px;
+  width: 70px;
+  margin: 4px;
+  border: 2px solid #232323;
+}
+
+button:hover {
+  background-color: #c5c5c5;
 }
 
 #zero {
   flex-grow: 1;
 }
 
-#equals {
-  border: 0;
-  background-color: #8F423D;
-  color: #e6e6e6;
-}
-
 .operator, .tool {
   background-color: #2d2d2d;
   color: #e6e6e6;
-  border: 1px solid #232323;
+  border: 0px solid #232323;
 }
