@@ -29,7 +29,7 @@ function populateDisplay() {
   if (displayValue === '') {
     numberDisplay.textContent = 0;
   } else {
-    numberDisplay.textContent = displayValue;
+    numberDisplay.textContent = displayValue.toString().slice(0, 23);
   }
   appendFontSize();
 }
@@ -45,7 +45,6 @@ function appendFontSize() {
   } else {
     numberDisplay.style.fontSize = '48px';
   }
-  console.log(displayValue, displayValueLength);
 }
 
 function checkForDecimal(number) {
